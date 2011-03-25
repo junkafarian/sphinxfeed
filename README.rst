@@ -10,16 +10,16 @@ package instead of Django utils to generate the feed.
 Usage
 -----
 
-#. Install ``sphinxfeed`` using ``easy_install`` / ``pip`` / ``python setup.py install``
+#. Install ``sphinxfeed`` using ``easy_install`` / ``pip`` /
+   ``python setup.py install``
 
-#. Add ``sphinxfeed`` to the list of extensions in your ``conf.py``:
+#. Add ``sphinxfeed`` to the list of extensions in your ``conf.py``::
    
-::
-   extensions = [..., 'sphinxfeed']
+       extensions = [..., 'sphinxfeed']
 
-#. Customise the necessary configuration options to correctly generate the feed:
+#. Customise the necessary configuration options to correctly generate the
+   feed::
 
-::
-   feed_base_url = 'http://YOUR_HOST_URL'
-   feed_author = 'YOUR NAME'
+       feed_base_url = 'http://YOUR_HOST_URL'
+       feed_author = 'YOUR NAME'
 
