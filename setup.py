@@ -1,4 +1,4 @@
-from setuptools import setup
+from distutils.core import setup
 
 long_desc = open('README.rst').read()
 
@@ -9,13 +9,13 @@ requires = [
 
 setup(
     name='sphinxfeed',
-    version='0.1',
+    version='0.2',
     license='BSD',
     author='junkafarian',
     author_email='junkafarian@gmail.com',
+    url='https://github.com/junkafarian/sphinxfeed',
     description='Sphinx extension for generating RSS feeds',
     long_description=long_desc,
-    zip_safe=False,
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Console',
