@@ -9,7 +9,7 @@ requires = [
 
 setup(
     name='sphinxfeed',
-    version='0.2',
+    version='0.3',
     license='BSD',
     author='junkafarian',
     author_email='junkafarian@gmail.com',
