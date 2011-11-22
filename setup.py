@@ -1,13 +1,6 @@
 from setuptools import setup
 
-long_desc = '''
-This package is derived from the feed Sphinx extension by Dan Mackinlay.
-
-It creates an RSS feed of recently updated sphinx action.
-
-It removes the original dependency on django.utils, replacing the functionality
-with feedformatter
-'''
+long_desc = open('README.rst').read()
 
 requires = [
     'Sphinx>=0.6',
@@ -19,6 +12,7 @@ setup(
     version='0.1',
     license='BSD',
     author='junkafarian',
+    author_email='junkafarian@gmail.com',
     description='Sphinx extension for generating RSS feeds',
     long_description=long_desc,
     zip_safe=False,
