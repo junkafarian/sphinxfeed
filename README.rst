@@ -1,11 +1,14 @@
 sphinxfeed
 ==========
 
-This Sphinx extension is derived from Dan Mackinlay's `sphinxcontrib.feed
-<http://bitbucket.org/birkenfeld/sphinx-contrib/src/tip/feed/>`_ package.
+This Sphinx extension is derived from Dan Mackinlay's
+`sphinxcontrib.feed
+<http://bitbucket.org/birkenfeld/sphinx-contrib/src/tip/feed/>`_
+package.
 
-It relies on the `feedformatter <http://code.google.com/p/feedformatter/>`_
-package instead of Django utils to generate the feed.
+It relies on the `feedformatter
+<http://code.google.com/p/feedformatter/>`_ package instead of Django
+utils to generate the feed.
 
 Usage
 -----
@@ -17,9 +20,14 @@ Usage
    
        extensions = [..., 'sphinxfeed']
 
-#. Customise the necessary configuration options to correctly generate the
-   feed::
+#. Customise the necessary configuration options to correctly generate
+   the feed::
 
        feed_base_url = 'http://YOUR_HOST_URL'
        feed_author = 'YOUR NAME'
+       
+       # optional options
+       feed_description = "A longer description"
+       feed_field_name = 'date'  # default value is "Publish Date"
+
 

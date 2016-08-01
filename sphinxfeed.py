@@ -3,6 +3,15 @@
 
 import unittest
 
+import time
+def parse_pubdate(pubdate):
+    try:
+        date = time.strptime(pubdate, '%Y-%m-%d %H:%M')
+    except ValueError:
+        date = time.strptime(pubdate, '%Y-%m-%d')
+    return date
+
+
 def setup(app):
     """ see: http://sphinx.pocoo.org/ext/appapi.html
         this is the primary extension point for Sphinx
@@ -12,6 +21,7 @@ def setup(app):
     app.add_config_value('feed_base_url', '', '')
     app.add_config_value('feed_description', '', '')
     app.add_config_value('feed_author', '', '')
+    app.add_config_value('feed_field_name', 'Publish Date', '')
     app.add_config_value('feed_filename', 'rss.xml', 'html')
     
     app.connect('html-page-context', create_feed_item)
@@ -40,30 +50,21 @@ def create_feed_container(app):
 def create_feed_item(app, pagename, templatename, ctx, doctree):
     """ Here we have access to nice HTML fragments to use in, say, an RSS feed.
     """
-    import time
-    def parse_pubdate(pubdate):
-        try:
-            date = time.strptime(pubdate, '%Y-%m-%d %H:%M')
-        except ValueError:
-            date = time.strptime(pubdate, '%Y-%m-%d')
-        return date
     
     env = app.builder.env
     metadata = app.builder.env.metadata.get(pagename, {})
-    
-    if 'Publish Date' not in metadata:
-        """ Don't index dateless articles.
-            Use the metadata syntax in order to specify the publish data::
-            
-                :Publish Date: 2010-01-01
-        """
-        return 
-    
+
+    pubDate = metadata.get(app.config.feed_field_name, None)
+    if not pubDate:
+        return
+
+    pubDate = parse_pubdate(pubDate)
+
     item = {
       'title': ctx.get('title'),
       'link': app.config.feed_base_url + '/' + ctx['current_page_name'] + ctx['file_suffix'],
       'description': ctx.get('body'),
-      'pubDate': parse_pubdate(metadata['Publish Date'])
+      'pubDate': pubDate
     }
     if 'author' in metadata:
         item['author'] = metadata['author']
