@@ -86,6 +86,11 @@ def emit_feed(app, exc):
                         app.config.feed_filename)
     feed.format_rss2_file(path)
     
+    return
+    # 20180204 The following code (pickle the environment and check
+    # consistency at this point) caused an error when also bibtex was
+    # installed. I deactivated it since I don't know why it's needed.
+    
     from os import path
     from sphinx.application import ENV_PICKLE_FILENAME
     from sphinx.util.console import bold
