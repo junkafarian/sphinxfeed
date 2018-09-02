@@ -4,11 +4,13 @@
 import unittest
 
 import time
+
 def parse_pubdate(pubdate):
+    fmt = '%Y-%m-%d %H:%M'
     try:
-        date = time.strptime(pubdate, '%Y-%m-%d %H:%M')
+        date = time.strptime(pubdate, fmt)
     except ValueError:
-        date = time.strptime(pubdate, '%Y-%m-%d')
+        date = time.strptime(pubdate + " 23:59", fmt)
     return date
 
 
@@ -59,6 +61,9 @@ def create_feed_item(app, pagename, templatename, ctx, doctree):
         return
 
     pubDate = parse_pubdate(pubDate)
+
+    if pubDate > time.gmtime():
+        return
 
     item = {
       'title': ctx.get('title'),
