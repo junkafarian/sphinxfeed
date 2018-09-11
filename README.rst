@@ -4,7 +4,7 @@ The ``sphinxfeed`` package
 
 
 
- This Sphinx extension is a fork of Fergus Doye's sphinxfeed
+ This Sphinx extension is a fork of Fergus Doyle's sphinxfeed
 package which itself is derived from Dan Mackinlay's
 `sphinxcontrib.feed
 <http://bitbucket.org/birkenfeld/sphinx-contrib/src/tip/feed/>`_
