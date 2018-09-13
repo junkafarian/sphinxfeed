@@ -7,3 +7,5 @@ syntax: glob
 .build
 .coverage
 .eggs
+tmp
+.doctrees

@@ -66,6 +66,7 @@ SETUP_INFO = dict(
     py_modules=['sphinxfeed'],
     include_package_data=True,
     install_requires=requires,
+    test_suite='tests'
 )
 
 

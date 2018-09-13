@@ -83,9 +83,7 @@ def emit_feed(app, exc):
     import os.path
     ordered_items = app.builder.env.feed_items.values()
     feed = app.builder.env.feed_feed
-    ordered_items.sort(
-      cmp=lambda x,y: cmp(x['pubDate'],y['pubDate']),
-      reverse=True)
+    ordered_items.sort(key=lambda x: x['pubDate'], reverse=True)
     for item in ordered_items:
         feed.items.append(item)
     
