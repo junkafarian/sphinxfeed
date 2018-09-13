@@ -46,9 +46,9 @@ SETUP_INFO = dict(
     name='sphinxfeed',
     version='0.3',
     license='BSD',
-    author='junkafarian',
-    author_email='junkafarian@gmail.com',
-    url='https://github.com/junkafarian/sphinxfeed',
+    author='Luc Saffre',
+    author_email='luc.saffre@gmail.com',
+    url='https://github.com/lsaffre/sphinxfeed',
     description='Sphinx extension for generating RSS feeds',
     long_description=long_desc,
     classifiers=[
@@ -66,7 +66,8 @@ SETUP_INFO = dict(
     py_modules=['sphinxfeed'],
     include_package_data=True,
     install_requires=requires,
-    test_suite='tests'
+    test_suite='tests',
+    tests_require=['atelier']
 )
 
 
