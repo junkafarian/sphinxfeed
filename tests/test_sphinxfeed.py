@@ -17,6 +17,5 @@ class AllTests(TestCase):
         match, mismatch, errors = filecmp.cmpfiles(
             "tests/docs1/expected", "tmp", common)
 
-        
-
+        self.assertEqual(mismatch, [])
         self.assertEqual(match, common)
