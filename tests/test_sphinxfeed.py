@@ -1,9 +1,15 @@
+# -*- coding: UTF-8 -*-
+# Copyright 2018 Rumma & Ko Ltd
+
 import filecmp
 from atelier.test import TestCase
 
 class AllTests(TestCase):
     def test_all(self):
-
+        """
+        Run a sphinx-build and then check whether the generated files (in
+        `tmp`) are the same as in `expected`.
+        """
         args = ['sphinx-build']
         args += ["-b"]
         args += ["html"]
