@@ -11,7 +11,7 @@ class AllTests(TestCase):
         `tmp`) are the same as in `expected`.
 
         The tests can fail if the Sphinx version changes.
-        
+
         """
         args = ['sphinx-build']
         args += ["-b"]
