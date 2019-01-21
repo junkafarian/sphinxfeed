@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-# Copyright 2018 Rumma & Ko Ltd
+# Copyright 2018-2019 Rumma & Ko Ltd
 
 import filecmp
 from atelier.test import TestCase
@@ -9,6 +9,9 @@ class AllTests(TestCase):
         """
         Run a sphinx-build and then check whether the generated files (in
         `tmp`) are the same as in `expected`.
+
+        The tests can fail if the Sphinx version changes.
+        
         """
         args = ['sphinx-build']
         args += ["-b"]
