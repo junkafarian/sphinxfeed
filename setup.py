@@ -3,7 +3,7 @@ from setuptools import setup
 
 requires = [
     'Sphinx>=0.6',
-    'feedgen', 'dateutil'
+    'feedgen', 'python-dateutil'
     ]
 
 

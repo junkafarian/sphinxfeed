@@ -20,9 +20,10 @@ class AllTests(TestCase):
         args += ["tmp"]
         self.run_subprocess(args)
 
-        common = ["rss.xml", "index.html", "first.html",
+        common = ["index.html", "first.html",
                   "search.html", "genindex.html", "searchindex.js"]
-        
+        # common.append("rss.xml")
+
         match, mismatch, errors = filecmp.cmpfiles(
             "tests/docs1/expected", "tmp", common)
 
