@@ -1,9 +1,11 @@
 from setuptools import setup
 
+
 requires = [
     'Sphinx>=0.6',
-    'feedformatter',
+    'feedgen', 'dateutil'
     ]
+
 
 # long_desc = open('README.rst').read()
 long_desc = """ This Sphinx extension is a fork of Fergus Doyle's sphinxfeed
@@ -19,6 +21,7 @@ Features added by Luc:
 - new config variable feed_field_name to change the name of the field
   to use for specifying the publication date.
 - don't publish items whose publication datetime is in the future.
+- Support Python 3 (by using feedgen instead of feedformatter)
 
 Usage
 -----
