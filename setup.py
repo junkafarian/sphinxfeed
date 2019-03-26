@@ -8,20 +8,25 @@ requires = [
 
 
 # long_desc = open('README.rst').read()
-long_desc = """ This Sphinx extension is a fork of Fergus Doyle's sphinxfeed
-package which itself is derived from Dan Mackinlay's
+long_desc = """This Sphinx extension is a fork of Fergus Doyle's `sphinxfeed
+package <https://github.com/junkafarian/sphinxfeed>`__
+which itself is derived from Dan Mackinlay's
 `sphinxcontrib.feed
 <http://bitbucket.org/birkenfeld/sphinx-contrib/src/tip/feed/>`_
-package.  It relies on the `feedformatter
-<http://code.google.com/p/feedformatter/>`_ package instead of Django
+package.  It relies on
+Lars Kiesow's `python-feedgen <https://feedgen.kiesow.be>`__ package
+instead of the defunct `feedformatter
+<http://code.google.com/p/feedformatter/>`_ package or of Django
 utils to generate the feed.
 
-Features added by Luc:
+Features added by Luc Saffre:
+
+- 20190315 : Support Python 3 (by using feedgen instead of feedformatter).
+  feed_description is no longer optional.
 
 - new config variable feed_field_name to change the name of the field
   to use for specifying the publication date.
 - don't publish items whose publication datetime is in the future.
-- Support Python 3 (by using feedgen instead of feedformatter)
 
 Usage
 -----
@@ -38,9 +43,9 @@ Usage
 
        feed_base_url = 'http://YOUR_HOST_URL'
        feed_author = 'YOUR NAME'
-       
-       # optional options
        feed_description = "A longer description"
+
+       # optional options
        feed_field_name = 'date'  # default value is "Publish Date"
 
 """

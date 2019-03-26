@@ -1,6 +1,7 @@
-=============================================
-The ``sphinxfeed`` package fork by Luc Saffre
-=============================================
+==========================
+The ``sphinxfeed`` package
+==========================
+
 
 
 This Sphinx extension is a fork of Fergus Doyle's `sphinxfeed
@@ -14,7 +15,7 @@ instead of the defunct `feedformatter
 <http://code.google.com/p/feedformatter/>`_ package or of Django
 utils to generate the feed.
 
-Features added by Luc:
+Features added by Luc Saffre:
 
 - 20190315 : Support Python 3 (by using feedgen instead of feedformatter).
   feed_description is no longer optional.
