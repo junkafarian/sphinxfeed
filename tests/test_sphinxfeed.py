@@ -10,7 +10,13 @@ class AllTests(TestCase):
         Run a sphinx-build and then check whether the generated files (in
         `tmp`) are the same as in `expected`.
 
-        The tests can fail if the Sphinx version changes.
+        The tests fail when the Sphinx version has changed.  In that case::
+
+          $ diff tmp/ tests/docs1/expected
+
+        and if there is no other changes, update the expected files::
+
+          $ cp tmp/*.html *.js tests/docs1/expected
 
         """
         args = ['sphinx-build']
