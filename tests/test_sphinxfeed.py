@@ -16,7 +16,7 @@ class AllTests(TestCase):
 
         and if there is no other changes, update the expected files::
 
-          $ cp tmp/*.html *.js tests/docs1/expected
+          $ cp tmp/*.html tmp/*.js tests/docs1/expected
 
         """
         args = ['sphinx-build']
