@@ -53,7 +53,7 @@ Usage
 SETUP_INFO = dict(
     name='sphinxfeed',
     version='0.3',
-    license='BSD',
+    license='BSD-2-Clause',
     author='Luc Saffre',
     author_email='luc.saffre@gmail.com',
     url='https://github.com/lsaffre/sphinxfeed',
