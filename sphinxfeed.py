@@ -40,11 +40,11 @@ def setup(app):
     app.add_config_value('feed_author', '', 'html')
     app.add_config_value('feed_field_name', 'Publish Date', 'env')
     app.add_config_value('feed_filename', 'rss.xml', 'html')
-    
+
     app.connect('html-page-context', create_feed_item)
     app.connect('build-finished', emit_feed)
     app.connect('builder-inited', create_feed_container)
-    
+
     #env.process_metadata deletes most of the docinfo, and dates
     #in particular.
 
@@ -55,7 +55,7 @@ def create_feed_container(app):
     feed.link(href=app.config.feed_base_url)
     feed.author(dict(name=app.config.feed_author))
     feed.description(app.config.feed_description)
-    
+
     if app.config.language:
         feed.language(app.config.language)
     if app.config.copyright:
@@ -67,7 +67,7 @@ def create_feed_container(app):
 def create_feed_item(app, pagename, templatename, ctx, doctree):
     """ Here we have access to nice HTML fragments to use in, say, an RSS feed.
     """
-    
+
     env = app.builder.env
     metadata = app.builder.env.metadata.get(pagename, {})
 
@@ -77,7 +77,8 @@ def create_feed_item(app, pagename, templatename, ctx, doctree):
 
     pubDate = parse_pubdate(pubDate)
 
-    if pubDate > time.gmtime():
+    if pubDate > time.localtime():
+        # raise Exception("20200131 {} > {}".format(pubDate, time.gmtime()))
         return
 
     if not ctx.get('body') or not ctx.get('title'):
@@ -98,7 +99,7 @@ def create_feed_item(app, pagename, templatename, ctx, doctree):
 
     #Additionally, we might like to provide our templates with a way to link to the rss output file
     ctx['rss_link'] = app.config.feed_base_url + '/' + app.config.feed_filename
-  
+
 def emit_feed(app, exc):
     ordered_items = list(app.builder.env.feed_items.values())
     feed = app.builder.env.feed_feed
@@ -108,17 +109,17 @@ def emit_feed(app, exc):
         feed.add_entry(item)  # prepends the item
         # for k, v in item.items():
         #     getattr(e, k)(v)
-    
+
     path = os.path.join(app.builder.outdir,
                         app.config.feed_filename)
     # print(20190315, path)
     feed.rss_file(path)
-    
+
     return
     # LS 20180204 The following code (pickle the environment and check
     # consistency at this point) caused an error when also bibtex was
     # installed. I deactivated it since I don't know why it's needed.
-    
+
     from os import path
     from sphinx.application import ENV_PICKLE_FILENAME
     from sphinx.util.console import bold
@@ -127,7 +128,7 @@ def emit_feed(app, exc):
     builder.info(bold('pickling environment... '), nonl=True)
     builder.env.topickle(path.join(builder.doctreedir, ENV_PICKLE_FILENAME))
     builder.info('done')
-    
+
     # global actions
     builder.info(bold('checking consistency... '), nonl=True)
     builder.env.check_consistency()
