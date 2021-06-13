@@ -1,24 +1,26 @@
 # -*- coding: UTF-8 -*-
-# Copyright 2018-2019 Rumma & Ko Ltd
+# Copyright 2018-2021 Rumma & Ko Ltd
+
+"""
+Run a sphinx-build and then check whether the generated files (in
+`tmp`) are the same as in `expected`.
+
+The tests fail when the Sphinx version has changed.  In that case::
+
+  $ diff tmp/ tests/docs1/expected
+
+and if there is no other changes, update the expected files::
+
+  $ cp tmp/*.html tmp/*.js tests/docs1/expected
+
+"""
+
 
 import filecmp
 from atelier.test import TestCase
 
 class AllTests(TestCase):
     def test_all(self):
-        """
-        Run a sphinx-build and then check whether the generated files (in
-        `tmp`) are the same as in `expected`.
-
-        The tests fail when the Sphinx version has changed.  In that case::
-
-          $ diff tmp/ tests/docs1/expected
-
-        and if there is no other changes, update the expected files::
-
-          $ cp tmp/*.html tmp/*.js tests/docs1/expected
-
-        """
         args = ['sphinx-build']
         args += ["-b"]
         args += ["html"]
