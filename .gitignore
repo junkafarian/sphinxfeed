@@ -1,0 +1,11 @@
+# use glob syntax.
+syntax: glob
+
+*.pyc
+*~
+*.egg-info
+.build
+.coverage
+.eggs
+tmp
+.doctrees
