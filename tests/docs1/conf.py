@@ -12,7 +12,7 @@
 # serve to show the default value.
 
 # from __future__ import unicode_literals
-# from atelier.sphinxconf import configure
+# from rstgen.sphinxconf import configure
 
 extensions = []
 templates_path = []
