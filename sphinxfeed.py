@@ -9,6 +9,8 @@ from dateutil.tz import tzlocal
 from feedgen.feed import FeedGenerator
 from feedgen.feed import FeedEntry
 
+import rstgen
+
 doc_trees = []  # for atelier
 
 
@@ -40,6 +42,7 @@ def setup(app):
     app.add_config_value('feed_author', '', 'html')
     app.add_config_value('feed_field_name', 'Publish Date', 'env')
     app.add_config_value('feed_filename', 'rss.xml', 'html')
+    # app.add_config_value('use_dirhtml', False, 'html')
 
     app.connect('html-page-context', create_feed_item)
     app.connect('build-finished', emit_feed)
@@ -89,7 +92,10 @@ def create_feed_item(app, pagename, templatename, ctx, doctree):
 
     item = FeedEntry()
     item.title(ctx.get('title'))
-    item.link(href=app.config.feed_base_url + '/' + ctx['current_page_name'] + ctx['file_suffix'])
+    href = app.config.feed_base_url + '/' + ctx['current_page_name']
+    if not rstgen.get_config_var('use_dirhtml'):
+        href += ctx['file_suffix']
+    item.link(href=href)
     item.description(ctx.get('body'))
     item.published(pubDate)
 
