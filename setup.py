@@ -27,6 +27,8 @@ Features added by Luc Saffre:
 - new config variable feed_field_name to change the name of the field
   to use for specifying the publication date.
 - don't publish items whose publication datetime is in the future.
+- respect use_dirhtml option from rstgen when calculating the url
+
 
 Usage
 -----
@@ -35,7 +37,7 @@ Usage
    ``python setup.py install``
 
 #. Add ``sphinxfeed`` to the list of extensions in your ``conf.py``::
-   
+
        extensions = [..., 'sphinxfeed']
 
 #. Customise the necessary configuration options to correctly generate

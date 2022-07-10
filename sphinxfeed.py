@@ -1,5 +1,8 @@
 # This application is derived from Dan Mackinlay's sphinxcontrib.feed package.
 # The original can be found at http://bitbucket.org/birkenfeld/sphinx-contrib/src/tip/feed/
+"""
+See https://github.com/lsaffre/sphinxfeed
+"""
 
 import os.path
 import time
