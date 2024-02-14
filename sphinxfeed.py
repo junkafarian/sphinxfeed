@@ -54,6 +54,7 @@ def setup(app):
     #env.process_metadata deletes most of the docinfo, and dates
     #in particular.
 
+
 def create_feed_container(app):
     #from feedformatter import Feed
     feed = FeedGenerator()
@@ -69,6 +70,7 @@ def create_feed_container(app):
     app.builder.env.feed_feed = feed
     if not hasattr(app.builder.env, 'feed_items'):
         app.builder.env.feed_items = {}
+
 
 def create_feed_item(app, pagename, templatename, ctx, doctree):
     """ Here we have access to nice HTML fragments to use in, say, an RSS feed.
@@ -109,6 +111,7 @@ def create_feed_item(app, pagename, templatename, ctx, doctree):
     #Additionally, we might like to provide our templates with a way to link to the rss output file
     ctx['rss_link'] = app.config.feed_base_url + '/' + app.config.feed_filename
 
+
 def emit_feed(app, exc):
     ordered_items = list(app.builder.env.feed_items.values())
     feed = app.builder.env.feed_feed
@@ -119,8 +122,7 @@ def emit_feed(app, exc):
         # for k, v in item.items():
         #     getattr(e, k)(v)
 
-    path = os.path.join(app.builder.outdir,
-                        app.config.feed_filename)
+    path = os.path.join(app.builder.outdir, app.config.feed_filename)
     # print(20190315, path)
     feed.rss_file(path)
 
@@ -142,6 +144,7 @@ def emit_feed(app, exc):
     builder.info(bold('checking consistency... '), nonl=True)
     builder.env.check_consistency()
     builder.info('done')
+
 
 ## Tests
 

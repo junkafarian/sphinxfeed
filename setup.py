@@ -1,11 +1,6 @@
 from setuptools import setup
 
-
-requires = [
-    'Sphinx>=0.6',
-    'feedgen', 'python-dateutil'
-    ]
-
+requires = ['Sphinx>=0.6', 'feedgen', 'python-dateutil']
 
 # long_desc = open('README.rst').read()
 long_desc = """This Sphinx extension is a fork of Fergus Doyle's `sphinxfeed
@@ -52,34 +47,31 @@ Usage
 
 """
 
-SETUP_INFO = dict(
-    name='sphinxfeed',
-    version='0.3',
-    license='BSD-2-Clause',
-    author='Luc Saffre',
-    author_email='luc.saffre@gmail.com',
-    url='https://github.com/lsaffre/sphinxfeed',
-    description='Sphinx extension for generating RSS feeds',
-    long_description=long_desc,
-    classifiers=[
-        'Development Status :: 4 - Beta',
-        'Environment :: Console',
-        'Environment :: Web Environment',
-        'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD License',
-        'Operating System :: OS Independent',
-        'Programming Language :: Python',
-        'Topic :: Documentation',
-        'Topic :: Utilities',
-    ],
-    platforms='any',
-    py_modules=['sphinxfeed'],
-    include_package_data=True,
-    install_requires=requires,
-    test_suite='tests',
-    tests_require=['atelier']
-)
-
+SETUP_INFO = dict(name='sphinxfeed',
+                  version='0.3',
+                  license='BSD-2-Clause',
+                  author='Luc Saffre',
+                  author_email='luc.saffre@gmail.com',
+                  url='https://github.com/lsaffre/sphinxfeed',
+                  description='Sphinx extension for generating RSS feeds',
+                  long_description=long_desc,
+                  classifiers=[
+                      'Development Status :: 4 - Beta',
+                      'Environment :: Console',
+                      'Environment :: Web Environment',
+                      'Intended Audience :: Developers',
+                      'License :: OSI Approved :: BSD License',
+                      'Operating System :: OS Independent',
+                      'Programming Language :: Python',
+                      'Topic :: Documentation',
+                      'Topic :: Utilities',
+                  ],
+                  platforms='any',
+                  py_modules=['sphinxfeed'],
+                  include_package_data=True,
+                  install_requires=requires,
+                  test_suite='tests',
+                  tests_require=['atelier'])
 
 if __name__ == '__main__':
     setup(**SETUP_INFO)

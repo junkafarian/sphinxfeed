@@ -19,7 +19,6 @@ templates_path = []
 
 # configure(globals())
 
-
 # If your extensions are in another directory, add it here. If the directory
 # is relative to the documentation root, use os.path.abspath to make it
 # absolute, like shown here.
@@ -44,7 +43,6 @@ master_doc = 'index'
 project = "First sphinxfeed tester"
 copyright = '2018 Joe Doe'
 
-
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
@@ -64,7 +62,6 @@ language = 'en'
 # Else, today_fmt is used as the format for a strftime call.
 # today_fmt = '%d.%B.%Y'
 
-
 # Note 20100703 : unused_docs and exclude_trees  replaced by exclude_patterns
 
 # List of patterns, relative to source directory, that match files and
@@ -77,7 +74,6 @@ exclude_patterns = ['.build']
 # List of directories, relative to source directories, that shouldn't be searched
 # for source files.
 exclude_trees = ['old', 'include', '.build']
-
 
 # The reST default role (used for this markup: `text`) to use for all documents.
 #default_role = None
@@ -144,7 +140,6 @@ html_last_updated_fmt = '%Y-%m-%d'
 # typographically correct entities.
 #html_use_smartypants = True
 
-
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
 #html_additional_pages = {}
@@ -172,7 +167,6 @@ html_use_index = True
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'saffre-rumma'
 
-
 # Options for LaTeX output
 # ------------------------
 
@@ -185,8 +179,7 @@ htmlhelp_basename = 'saffre-rumma'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, document class [howto/manual]).
 latex_documents = [
-  ('index', 'saffre-rumma.tex', u'saffre-rumma',
-   u'saffre-rumma', 'manual'),
+    ('index', 'saffre-rumma.tex', u'saffre-rumma', u'saffre-rumma', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -206,7 +199,6 @@ latex_documents = [
 # If false, no module index is generated.
 #latex_use_modindex = True
 
-
 # html_sidebars = {
 #     '**': ['globaltoc.html', 'searchbox.html', 'links.html'],
 # }
@@ -217,7 +209,6 @@ latex_documents = [
 # html_theme = "bizstyle"
 # html_theme_options = dict(collapsiblesidebar=True, externalrefs=True)
 
-
 # extensions += ['yasfb']
 # extensions += ['sphinxcontrib.feed']
 extensions += ['sphinxfeed']
@@ -227,5 +218,3 @@ feed_author = 'Joe Dow'
 feed_title = "Joe's blog"
 feed_field_name = 'date'
 feed_description = "Joe's blog"
-
-

@@ -1,6 +1,5 @@
 # -*- coding: UTF-8 -*-
 # Copyright 2018-2021 Rumma & Ko Ltd
-
 """
 Run a sphinx-build and then check whether the generated files (in
 `tmp`) are the same as in `expected`.
@@ -15,11 +14,12 @@ and if there is no other changes, update the expected files::
 
 """
 
-
 import filecmp
 from atelier.test import TestCase
 
+
 class AllTests(TestCase):
+
     def test_all(self):
         args = ['sphinx-build']
         args += ["-b"]
@@ -28,12 +28,14 @@ class AllTests(TestCase):
         args += ["tmp"]
         self.run_subprocess(args)
 
-        common = ["index.html", "first.html",
-                  "search.html", "genindex.html", "searchindex.js"]
+        common = [
+            "index.html", "first.html", "search.html", "genindex.html",
+            "searchindex.js"
+        ]
         # common.append("rss.xml")
 
-        match, mismatch, errors = filecmp.cmpfiles(
-            "tests/docs1/expected", "tmp", common)
+        match, mismatch, errors = filecmp.cmpfiles("tests/docs1/expected",
+                                                   "tmp", common)
 
         self.assertEqual(mismatch, [])
         self.assertEqual(match, common)
